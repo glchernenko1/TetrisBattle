@@ -8,6 +8,7 @@ const context1 = canvas1.getContext('2d');
 
 const canvas2 = document.getElementById('enemy');
 const context2 = canvas2.getContext('2d');
+let enemy=-1;
 
 socket.on("state", (data)=>{
 
@@ -15,7 +16,9 @@ socket.on("state", (data)=>{
     //console.log(data.findIndex((player)=>player.id === socket.id));
 
     const you = data.findIndex((player)=>player.id === socket.id);
-    const enemy = data.findIndex((player)=>player.id ===data[you].playWithId);
+
+    if (you!== -1)
+      enemy = data.findIndex((player)=>player.id === data[you].playWithId);
 
 
     if (you!== -1 && enemy!== -1) {
