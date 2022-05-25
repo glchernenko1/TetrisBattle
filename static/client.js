@@ -18,10 +18,11 @@ socket.on("state", (data)=>{
     const enemy = data.findIndex((player)=>player.id ===data[you].playWithId);
 
 
+    if (you!== -1 && enemy!== -1) {
 
-    loop(data[you], canvas1, context1);
-    loop(data[enemy], canvas2, context2);
-
+        loop(data[you], canvas1, context1);
+        loop(data[enemy], canvas2, context2);
+    }
 });
 
 function loop(data, canvas, context){
